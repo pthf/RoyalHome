@@ -1,0 +1,23 @@
+{
+  "name": "royal_home",
+  "authors": [
+    "Jorge Leon <jorge_agl@hotmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "^1.5.7",
+    "angular": "^1.5.7",
+    "bootstrap": "^3.3.6",
+    "angular-parallax": "^0.0.2"
+  }
+}
