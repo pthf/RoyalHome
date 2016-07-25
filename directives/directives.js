@@ -11,7 +11,7 @@ angular.module('rhome.directives', [])
                     header = document.querySelector("header");
                     if (distanceY > shrinkOn) {
                         $('.header').addClass('down');
-                        $('.logo').attr('src','./assets/images/logo2.svg');
+                        $('.header').find('.logo').attr('src','./assets/images/logo2.svg');
                     } else {
                         $('.header').removeClass('down');
                         $('.logo').attr('src','./assets/images/logo.svg');

@@ -1,0 +1,10 @@
+@import 'home';
+@import 'proyectos';
+@import 'footer';
+
+.vertical-align{
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
+}
