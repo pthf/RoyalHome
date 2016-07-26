@@ -18,7 +18,6 @@
     "angular-route": "^1.5.7",
     "angular": "^1.5.7",
     "bootstrap": "^3.3.6",
-    "angular-parallax": "^0.0.2",
-    "livereload-js": "livereload#^2.2.1"
+    "angular-parallax": "^0.0.2"
   }
 }
