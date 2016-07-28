@@ -15,9 +15,20 @@
     opacity: 1 !important;
     transform: translateY(0);
 }
+.header-leyend{
+    .leyends{
+        margin-top: 0;
+        padding-top: 650px;
+        .content-hr{
+            position: relative;
+            margin-top: -2px;
+            left: 220px;
+        }
+    }
+}
 .leyends{
     margin-top: 0;
-    padding-top: 400px;
+    padding-top: 650px;
     .content-hr{
         position: static;
         margin-top: 8px;
