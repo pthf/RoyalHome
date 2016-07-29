@@ -20,8 +20,11 @@ angular.module('rhome.directives', [])
                 });
 
                 $('.navbar ul li').click(function(e){
-                    $(this).closest('.navbar-nav').find('li').removeClass('focus');
-                    $(e.currentTarget).addClass('focus');
+                    e.preventDefault();
+                    if($('.navbar').hasClass('down')){
+                        $(this).closest('.navbar-nav').find('li').removeClass('focus');
+                        $(e.currentTarget).addClass('focus');
+                    }
                 });
 
                 $('a[href^="#"]').on('click', function (e) {
@@ -58,6 +61,8 @@ angular.module('rhome.directives', [])
                         }
                     });
                 }
+
+
 			}
 		}
     })
@@ -83,6 +88,15 @@ angular.module('rhome.directives', [])
         return{
 			restrict: 'E',
 			templateUrl: './pages/desarrollos/grid.html',
+			controller: function($document){
+
+			}
+		}
+    })
+    .directive('propiedades', function(){
+        return{
+			restrict: 'E',
+			templateUrl: './pages/propiedades/grid.html',
 			controller: function($document){
 
 			}

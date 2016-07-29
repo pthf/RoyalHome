@@ -11,13 +11,13 @@ app.controller('mainController', function($scope, $timeout){
         }
         return view;
     }
-
+//listen scroll fadein images when focus scroll
     $(window).scroll(function () {
         $('.grid > .b-grid').each(function () {
             if (isScrolledIntoView(this) === true)
                 $(this).addClass('in-view');
-            else
-                $(this).removeClass('in-view');
+            //else
+                //$(this).removeClass('in-view');
         });
     });
 
@@ -28,7 +28,12 @@ app.controller('mainController', function($scope, $timeout){
         });
 
         $('#myModal').on('shown.bs.modal', function(event){
-                $('body').css('overflow','hidden');
+                var mobile = ('ontouchstart' in document.documentElement && navigator.userAgent.match(/Mobi/));
+                if (!mobile) {
+                    
+                    $('body').css('overflow','hidden');
+                }
+
                 var galleryTop = new Swiper('.gallery-top', {
                     nextButton: '.swiper-button-next',
                     prevButton: '.swiper-button-prev',
@@ -54,7 +59,35 @@ app.controller('mainController', function($scope, $timeout){
         })
     }
 
+    $scope.getDetailGrid2 = function(){
+        $('#myModal2').modal({
+            show: true,
+            backdrop: true
+        });
 
+        $('#myModal2').on('shown.bs.modal', function(event){
+                $('body').css('overflow','hidden');
+                var galleryTop2 = new Swiper('.gallery-top2', {
+                    nextButton: '.swiper-button-next',
+                    prevButton: '.swiper-button-prev',
+                    spaceBetween: 10,
+                    setWrapperSize: true
+                });
 
+                galleryThumbs.params.control = galleryTop2;
+
+        });
+        $('#myModal2').on('hide.bs.modal	', function(event){
+            $('body').css('overflow','visible');
+        })
+    }
 
 });
+
+app.controller('scroll', function($scope, $anchorScroll, $location){
+    $scope.scrollTo = function(id) {
+
+        $location.hash(id);
+        $anchorScroll();
+   }
+})

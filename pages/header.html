@@ -1,31 +1,62 @@
-<header>
-    <nav class="navbar navbar-default navbar-fixed-top header">
+<header id="header">
 
-        <div class="container">
+    <!--nav class="navbar navbar-default navbar-fixed-top header">
 
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/"><img class="logo" src="./assets/images/logo.svg" /></a>
-            </div>
+    <div class="container">
 
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#quienesomos"><i class="fa fa-home"></i> QUIÉNES SOMOS</a></li>
-                <li><a href="#about"><i class="fa fa-shield"></i> PROYÉCTOS</a></li>
-                <li><a href="#desarrollos"><i class="fa fa-comment"></i> DESARROLLOS</a></li>
-                <li><a href="#propiedades"><i class="fa fa-comment"></i> PROPIEDADES</a></li>
-                <li><a href="#contact"><i class="fa fa-comment"></i> CONTACTO</a></li>
-            </ul>
+    <div class="navbar-header">
+    <a class="navbar-brand" href="#"><img class="logo" src="./assets/images/logo.svg" /></a>
+</div>
 
+<ul class="nav navbar-nav navbar-right" ng-controller="scroll">
+<li><a ng-click="scrollTo('quienesomos')" ><i class="fa fa-home"></i> QUIÉNES SOMOS</a></li>
+<li><a ng-click="scrollTo('proyectos')"><i class="fa fa-shield"></i> PROYÉCTOS</a></li>
+<li><a ng-click="scrollTo('desarrollos')"><i class="fa fa-comment"></i> DESARROLLOS</a></li>
+<li><a ng-click="scrollTo('propiedades')"><i class="fa fa-comment"></i> PROPIEDADES</a></li>
+<li><a ng-click="scrollTo('contacto')" ng-href="#"><i class="fa fa-comment"></i> CONTACTO</a></li>
+</ul>
+
+</div>
+</nav-->
+<nav class="navbar navbar-default navbar-fixed-top header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><img class="logo" src="./assets/images/logo.svg" /></a>
         </div>
-    </nav>
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+
+            <ul class="nav navbar-nav navbar-right visible-md visible-lg hidden-xs" ng-controller="scroll">
+                <li><a ng-click="scrollTo('quienesomos')" ><i class="fa fa-home"></i> QUIÉNES SOMOS</a></li>
+                <li><a ng-click="scrollTo('proyectos')"><i class="fa fa-shield"></i> PROYÉCTOS</a></li>
+                <li><a ng-click="scrollTo('desarrollos')"><i class="fa fa-comment"></i> DESARROLLOS</a></li>
+                <li><a ng-click="scrollTo('propiedades')"><i class="fa fa-comment"></i> PROPIEDADES</a></li>
+                <li><a ng-click="scrollTo('contacto')" ng-href="#"><i class="fa fa-comment"></i> CONTACTO</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right visible-xs hidden-lg hidden-md" ng-controller="scroll">
+                <li class="col-xs-12"><a ng-click="scrollTo('quienesomos')" ><i class="fa fa-home"></i> QUIÉNES SOMOS</a></li>
+                <li class="col-xs-12"><a ng-click="scrollTo('proyectos')"><i class="fa fa-shield"></i> PROYÉCTOS</a></li>
+                <li class="col-xs-12"><a ng-click="scrollTo('desarrollos')"><i class="fa fa-comment"></i> DESARROLLOS</a></li>
+                <li class="col-xs-12"><a ng-click="scrollTo('propiedades')"><i class="fa fa-comment"></i> PROPIEDADES</a></li>
+                <li class="col-xs-12"><a ng-click="scrollTo('contacto')" ng-href="#"><i class="fa fa-comment"></i> CONTACTO</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+</nav>
 </header>
 <div class="header-leyend">
     <div class="img" parallax-background parallax-ratio="-0.4">
         <div class="leyends container">
-            <div class="col-md-3 text col-md-offset-7">
-                <div class="col-md-6">
+            <div class="col-md-3 text col-md-offset-7 col-xs-12">
+                <div class="col-md-6 col-xs-12">
                     <p>DESARROLLADORA INMOBILIARIA </p>
                 </div>
-                <div class="content-hr col-md-3">
+                <div class="content-hr col-md-3 visible-md">
                     <hr>
                 </div>
 
