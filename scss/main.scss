@@ -208,3 +208,18 @@
 
 
 }
+
+@media (min-width: 767px) and (max-width: 989px)  {
+    .navbar-default{
+        .navbar-nav{
+            li{
+                a{
+                    font-size: 12px !important;
+                }
+            }
+        }
+    }
+    .logo{
+        width: 180px;
+    }
+}

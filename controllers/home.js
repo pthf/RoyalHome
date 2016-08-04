@@ -1,4 +1,4 @@
-app.controller('mainController', function($scope, $timeout){
+app.controller('mainController', function($scope, $timeout, $anchorScroll, $location){
     function isScrolledIntoView(elem) {
         view = false;
         var docViewTop = $(window).scrollTop();
@@ -18,7 +18,9 @@ app.controller('mainController', function($scope, $timeout){
                 $(this).addClass('in-view');
             //else
                 //$(this).removeClass('in-view');
+
         });
+
     });
 
     $scope.getDetailGrid = function(){
@@ -30,7 +32,7 @@ app.controller('mainController', function($scope, $timeout){
         $('#myModal').on('shown.bs.modal', function(event){
                 var mobile = ('ontouchstart' in document.documentElement && navigator.userAgent.match(/Mobi/));
                 if (!mobile) {
-                    
+
                     $('body').css('overflow','hidden');
                 }
 
@@ -86,7 +88,6 @@ app.controller('mainController', function($scope, $timeout){
 
 app.controller('scroll', function($scope, $anchorScroll, $location){
     $scope.scrollTo = function(id) {
-
         $location.hash(id);
         $anchorScroll();
    }
