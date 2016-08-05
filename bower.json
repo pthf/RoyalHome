@@ -23,6 +23,8 @@
     "ngmap": "^1.17.3",
     "jquery.scrollTo": "^2.1.2",
     "anchorScroll": "^1.2.1",
-    "waypoints": "^4.0.0"
+    "waypoints": "^4.0.0",
+    "angular-scroll": "^1.0.0",
+    "bootstrap-select": "^1.10.0"
   }
 }

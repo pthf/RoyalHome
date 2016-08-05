@@ -24,9 +24,12 @@ body{
             height:100%;
             display: inline;
             vertical-align: middle;
-            line-height: 111px;
+            line-height: 115px;
             cursor:pointer;
             a{
+                height: 108px;
+                line-height: 71px;
+
                 vertical-align: middle;
                 display: inline-block;
             }
@@ -55,10 +58,6 @@ body{
     background-color: #fff;
     border: none;
     box-shadow: 0px 1px 6px 0px #0f0f0f;
-    a{
-        color: #6EB253;
-    }
-
     .container{
         ul{
             li{
@@ -73,7 +72,7 @@ body{
                 a{
                     color: #6EB253;
                     &:hover{
-                        color:#fff;
+                        color:#fff !important;
                     }
                 }
             }
@@ -83,7 +82,6 @@ body{
 .navbar-default .navbar-nav>li>a{
     color:#ffffff;
     font-size:1vw;
-
 }
 .quienesomos{
     height:650px;
@@ -134,10 +132,10 @@ body{
     .content-hr{
         position: absolute;
         right: -21px;
-        top: 60px;
-
+        top: 60px; 
     }
     hr{
         border:1px solid #fff;
+
     }
 }

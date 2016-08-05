@@ -1,7 +1,8 @@
 var app = angular.module('app', [
                                   'rhome.directives',
                                   'angular-parallax',
-                                  'ngMap'
+                                  'ngMap',
+                                  'duScroll'
                               ]);
 
 app.run(function($rootScope, $timeout, $anchorScroll) {
@@ -9,14 +10,16 @@ app.run(function($rootScope, $timeout, $anchorScroll) {
 
     $rootScope.$watch('$viewContentLoaded', function(){
         $timeout(function () {
-
             var adding = function(element, direction){
                 $('.navbar-nav').find('li').removeClass('focus');
-                    if(direction == 'down')
+                    if(direction == 'down'){
                         $(element).addClass('focus');
-                    else if(direction == 'up')
+                    }
+                    else if(direction == 'up'){
                         $(element).removeClass('focus');
                         $(element).addClass('focus');
+                    }
+
             }
             $('#quienesomos').waypoint({
                 handler: function(direction) {
@@ -33,7 +36,7 @@ app.run(function($rootScope, $timeout, $anchorScroll) {
                     adding('.proyectosli', direction);
                 }
             },
-            { offset: '80%'})
+            { offset: '-250%'})
             $('#desarrollos').waypoint({
                 handler: function(direction) {
                     adding('.desarrollosli', direction);
@@ -50,5 +53,6 @@ app.run(function($rootScope, $timeout, $anchorScroll) {
                 }
             })
         }, 800);
+
     });
 });

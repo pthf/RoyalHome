@@ -1,4 +1,4 @@
-app.controller('mainController', function($scope, $timeout, $anchorScroll, $location){
+app.controller('mainController', function($scope, $timeout, $anchorScroll, $location, $document){
     function isScrolledIntoView(elem) {
         view = false;
         var docViewTop = $(window).scrollTop();
@@ -9,7 +9,7 @@ app.controller('mainController', function($scope, $timeout, $anchorScroll, $loca
         if( ((elemBottom-500 <= docViewBottom) && (elemTop+320 >= docViewTop)) ){
             view = true;
         }
-        return view;
+        return view;s
     }
 //listen scroll fadein images when focus scroll
     $(window).scroll(function () {
@@ -30,19 +30,17 @@ app.controller('mainController', function($scope, $timeout, $anchorScroll, $loca
         });
 
         $('#myModal').on('shown.bs.modal', function(event){
-                var mobile = ('ontouchstart' in document.documentElement && navigator.userAgent.match(/Mobi/));
-                if (!mobile) {
+            var galleryTop;
+            var galleryThumbs;
+            $('body').css('overflow','hidden');
 
-                    $('body').css('overflow','hidden');
-                }
-
-                var galleryTop = new Swiper('.gallery-top', {
+                galleryTop = new Swiper('.gallery-top', {
                     nextButton: '.swiper-button-next',
                     prevButton: '.swiper-button-prev',
                     spaceBetween: 10,
                     setWrapperSize: true
                 });
-                var galleryThumbs = new Swiper('.gallery-thumbs', {
+                galleryThumbs = new Swiper('.gallery-thumbs', {
                     spaceBetween: 10,
                     centeredSlides: true,
                     slidesPerView: 'auto',
@@ -52,6 +50,7 @@ app.controller('mainController', function($scope, $timeout, $anchorScroll, $loca
                     freeMode: true
 
                 });
+
                 galleryTop.params.control = galleryThumbs;
                 galleryThumbs.params.control = galleryTop;
 
@@ -69,6 +68,7 @@ app.controller('mainController', function($scope, $timeout, $anchorScroll, $loca
 
         $('#myModal2').on('shown.bs.modal', function(event){
                 $('body').css('overflow','hidden');
+
                 var galleryTop2 = new Swiper('.gallery-top2', {
                     nextButton: '.swiper-button-next',
                     prevButton: '.swiper-button-prev',
@@ -79,16 +79,34 @@ app.controller('mainController', function($scope, $timeout, $anchorScroll, $loca
                 galleryThumbs.params.control = galleryTop2;
 
         });
-        $('#myModal2').on('hide.bs.modal	', function(event){
+        $('#myModal2').on('hide.bs.modal', function(event){
             $('body').css('overflow','visible');
         })
     }
 
+
+
 });
 
-app.controller('scroll', function($scope, $anchorScroll, $location){
-    $scope.scrollTo = function(id) {
-        $location.hash(id);
-        $anchorScroll();
+app.controller('scroll', function($scope, $anchorScroll, $location, $document, $timeout){
+    $scope.scrollTo = function(event, id) {
+        $el = angular.element(document.getElementById(id));
+
+
+        if(document.documentElement.clientWidth > 750){
+            $document.scrollToElementAnimated($el,  100, 1000).then(function(){
+                $('.navbar ul li').removeClass('focus').delay('1000');
+                angular.element(event.target).parent().addClass('focus');
+                $('.navbar ul li.'+id+'li').addClass('focus');
+            });
+        }else{
+            $document.scrollToElementAnimated($el,  100).then(function(){
+                $('.navbar ul li').removeClass('focus');
+                angular.element(event.target).parent().addClass('focus');
+                $('.navbar ul li.'+id+'li').addClass('focus');
+            });
+        }
+
+
    }
 })

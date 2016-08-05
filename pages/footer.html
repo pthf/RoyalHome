@@ -1,4 +1,4 @@
-<div class="footer ">
+<div class="footer" ng-controller="scroll">
     <div class="h1 col-xs-12">
         <div class="container">
             <div class="row imgs">
@@ -66,15 +66,15 @@
                 <div class="col-md-6 col-xs-6">
                     <div class="nav col-md-5 col-xs-12">
                         <p class="nav-m">MENU</p>
-                        <a href="#"><p>Quienes somos</p></a>
-                        <a href="#"><p>Proyectos</p></a>
-                        <a href="#"><p>Desarrollos</p></a>
-                        <a href="#"><p>Propiedades Disponibles</p></a>
-                        <a href="#"><p>Contacto</p></a>
+                        <a href="#" ng-click="scrollTo($event, 'quienesomos')" ><p>Quienes somos</p></a>
+                        <a href="#" ng-click="scrollTo($event, 'proyectos')"><p>Proyectos</p></a>
+                        <a href="#" ng-click="scrollTo($event, 'desarrollos')"><p>Desarrollos</p></a>
+                        <a href="#" ng-click="scrollTo($event, 'propiedades')"><p>Propiedades Disponibles</p></a>
+                        <a href="#" ng-click="scrollTo($event, 'contacto')"><p>Contacto</p></a>
                     </div>
                     <div class="col-md-7 text-right col-xs-12 c-arrow">
                         <a href="#">
-                            <img class="arrow" src="./assets/images/arrow.png" alt="" />
+                            <img onclick="window.scrollTo(0, 0);" class="arrow" src="./assets/images/arrow.png" alt="" />
                         </a>
                     </div>
                 </div>

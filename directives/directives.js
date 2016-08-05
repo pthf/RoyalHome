@@ -12,21 +12,47 @@ angular.module('rhome.directives', [])
                     if (distanceY > shrinkOn) {
                         $('.header').addClass('down');
                         $('.header').find('.logo').attr('src','./assets/images/logo2.svg');
+                        $('.navbar-default .navbar-toggle').css('border-color', '#6EB253');
+                        $('.navbar-default .navbar-toggle .icon-bar').css('background-color','#6EB253')
+                        if (document.documentElement.clientWidth < 750){
+                            $('.down .container ul li a').css('color', '#fff');
+                            $('.down .container ul li').click(function(){
+
+                            })
+                        }else{
+                            $('.down .container ul li a').css('color', '#6EB253')
+
+                        }
+
                     } else {
+                        $('.container ul li a').css('color', '#fff')
                         $('.header').removeClass('down');
                         $('.logo').attr('src','./assets/images/logo.svg');
                         $('.navbar-nav').find('li').removeClass('focus');
+                        $('.navbar-default .navbar-toggle .icon-bar').css('background-color','#fff')
+                        $('.navbar-default .navbar-toggle').css('border-color', '#fff');
                     }
                 });
 
+                $(window).resize(function(){
+                    if (document.documentElement.clientWidth < 750){
+                        $('.down .container ul li a').css('color', '#fff');
+
+                    }else{
+                        $('.down .container ul li a').css('color', '#6EB253');
+                    }
+                })
+
                 $('.navbar ul li').click(function(e){
                     e.preventDefault();
+                    if(document.documentElement.clientWidth < 750){
+                        $('.navbar-toggle').click();
+                    }
                     if($('.navbar').hasClass('down')){
                         $(this).closest('.navbar-nav').find('li').removeClass('focus');
                         $(e.currentTarget).addClass('focus');
                     }
                 });
-
 
                 function onScroll(event){
                     var scrollPos = $(document).scrollTop();
@@ -45,6 +71,7 @@ angular.module('rhome.directives', [])
 
 
 			}
+
 		}
     })
     .directive('quienesomos', function(){
@@ -92,7 +119,6 @@ angular.module('rhome.directives', [])
 			}
 		}
     })
-
     .directive('footer', function(){
         return{
 			restrict: 'E',
